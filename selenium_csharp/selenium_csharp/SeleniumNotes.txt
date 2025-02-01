@@ -1,0 +1,39 @@
+﻿Selenium Notes:
+- Code to launch ChromeDriver:
+	import Packages:
+		using OpenQA.Selenium;
+		using OpenQA.Selenium.Chrome;
+		using WebDriverManager.DriverConfigs.Impl;
+	Code: 
+		new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
+        IWebDriver  driver = new ChromeDriver();
+
+- Code to maximize a window: driver.Manage().Window.Maximize();
+
+- Code to navigate to a URL: driver.Url = "https://rahulshettyacademy.com/loginpagePractise/";
+
+- Code to get the Title: driver.Title; 
+	The following statement prints the title -  TestContext.Progress.WriteLine(driver.Title);
+
+- Code to get the URL: driver.Url;
+	The following statement prints the title - TestContext.Progress.WriteLine(driver.Url);
+
+- Code to close/quit browser: driver.Close(); driver.Quit();
+
+- Command to launch Firefox browser
+	import statements:
+		using OpenQA.Selenium;
+		using OpenQA.Selenium.Firefox;
+		using WebDriverManager.DriverConfigs.Impl;
+	Code:
+         new WebDriverManager.DriverManager().SetUpDriver(new FirefoxConfig());
+         driver = new FirefoxDriver();
+
+- Command to launch Edge browser
+	import statements:
+		using OpenQA.Selenium;
+		using OpenQA.Selenium.Edge;
+		using WebDriverManager.DriverConfigs.Impl;
+	Code:
+         new WebDriverManager.DriverManager().SetUpDriver(new EdgeConfig());
+         driver = new EdgeDriver();

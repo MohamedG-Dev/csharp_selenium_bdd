@@ -1,0 +1,7 @@
+﻿URLS can be used as part of practice:
+1. https://rahulshettyacademy.com/loginpagePractise/
+
+
+Program files to be followed as part of learning:
+These below tests are as part of NUnit project.
+1. SeleniumFirst.cs

@@ -1,0 +1,56 @@
+﻿Project resource to refer for learning - https://github.com/BakkappaN/SpecFlowBDDAutomationFramework/tree/main
+========================================================================================================================
+Specflow Framework Report Generation - Run the below command in Run as administrator mode
+-> dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
+
+Add * and source as nuget in the Package Source Manager in visual studio
+
+then  navigate to the project path in the file explorer, navigate in the following direction:
+D:\Learning\csharp\workspace\csharp_selenium_bdd\SpecFlowProject1\bin\Debug\net6.0
+
+and then hit cmd under the project address tab and give the below command:
+
+-> livingdoc test-assembly SpecFlowProject1.dll -t TestExecution.json
+Note: SpecFlowProject1 - is the project name.
+
+Note:Whenever we need a new report give the below command in the command prompt:
+:\Learning\csharp\workspace\csharp_selenium_bdd\SpecFlowProject1\bin\Debug\net6.0
+then navigate to the below mentioned path and open the livingdoc.html report
+Path to view the HTML report - LivingDoc
+D:/Learning/csharp/workspace/csharp_selenium_bdd/SpecFlowProject1/bin/Debug/net6.0/LivingDoc.html
+================================================================================================================
+Hooks:
+resources: https://docs.specflow.org/projects/specflow/en/latest/Bindings/Hooks.html
+Important Hooks:
+- BeforeFeature
+- AfterFeature
+- BeforeScenario
+- AfterScenario
+- BeforeScenario Tag based
+- BeforeStep
+- AfterStep
+- BeforeTestRun
+- AfterTestRun
+==================================================================================================================
+Extent Reports:
+Right click on the dependencies folder -> Manage NuGet packages -> search for 'extent report' (.net standard) -> click on Install
+
+Refere the file for the Extent reports code: Utility\\ExtentReport.cs
+==================================================================================================================
+For Data Driven Testing examples refer -
+	- Feature file: DataDriverTesting.feature
+	- StepDefinition: DataDrivenTestingFeatureStepDefinitions.cs
+==================================================================================================================
+Page Object Model(POM):
+	- POM is a design pattern to create object repository for web page elements
+	- For each web page there will be corresponding page class
+	- Page class contains all the web page elements of that page & also it contains page methods which perform operations on those web elements.
+Advantages of POM:
+ - Code will be more cleaner and easy to understand
+ - Object repository is independent of test scripts
+ - Test Script will be optimized beacause of elements respective abstraction method in page classes
+
+Disadvantages:
+- Time and effort
+- Specific to the project
+
