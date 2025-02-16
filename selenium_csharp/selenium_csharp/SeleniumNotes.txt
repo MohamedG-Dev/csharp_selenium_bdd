@@ -37,3 +37,89 @@
 	Code:
          new WebDriverManager.DriverManager().SetUpDriver(new EdgeConfig());
          driver = new EdgeDriver();
+
+- Command to clear a edit field: driver.FindElement(By.Id("username")).Clear();
+- Command to find an element using ID locator: driver.FindElement(By.Id("username")).SendKeys("rahulshettyacademy ");
+- Command to find an element using name locator: driver.FindElement(By.Name("password")).SendKeys("learning");
+- Command to find an element using xpath and click on the button:
+	driver.FindElement(By.XPath("//input[@id='signInBtn']")).Click();
+-Command to find an element using classname and get the text of the element:
+	string errorText = driver.FindElement(By.ClassName("alert-danger")).Text;
+- Command to identify an element using LinkText locator and get the attribute of the element
+    IWebElement link = driver.FindElement(By.LinkText("Free Access to InterviewQues/ResumeAssistance/Material"));
+    String linkTextAttribute = link.GetAttribute("href");
+    String expectedUrl = "https://rahulshettyacademy.com/documents-request";
+	//verify the link is as expected one
+    Assert.That(linkTextAttribute, Is.EqualTo(expectedUrl));
+- Command to click on checkbox using XPath
+        driver.FindElement(By.XPath("//div[@class='form-group']/child::label[@class='text-info']//input[@type='checkbox']")).Click();
+
+- Implicit Waits are declared to global wait
+        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+- Explicit Waits - SeleniumExtras.WaitHelpers package need to be downloaded from nuget
+	WebDriverWait explicitWait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+    explicitWait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.TextToBePresentInElementValue(signInButton, "Sign In"));
+
+- Selecting Radio Buttons:
+	IList<IWebElement> radioButtons = driver.FindElements(By.XPath("//input[@type='radio']"));
+        foreach (IWebElement radionButton in radioButtons)
+        {
+            if (radionButton.GetAttribute("value").Equals("user"))
+            {
+                radionButton.Click();
+            }
+        }
+- Command to click using partial LinkText:
+	driver.FindElement(By.PartialLinkText("Checkout")).Click();
+
+- Code for findElements within a parent WebElement, and performing actions:
+	 IList<IWebElement> productContainer = driver.FindElements(By.TagName("app-card"));
+        foreach (IWebElement product in productContainer)
+        {
+            if (products.Contains(product.FindElement(By.CssSelector(".card-title a")).Text))
+            {
+                product.FindElement(By.CssSelector(".card-footer button")).Click();
+            }
+            TestContext.Progress.WriteLine(product.FindElement(By.CssSelector(".card-title a")).Text);
+        }
+
+- Sorting the array list
+        beforeSortedList.Sort();
+
+- Assertion example: Assert.That(sortedArrayList, Is.EqualTo(beforeSortedList));
+
+- selecting value from dropdowns:
+    SelectElement select = new SelectElement(driver.FindElement(By.Id("page-menu")));
+        select.SelectByValue("20");
+
+- Actions class examples:
+    MoveToElement() example:
+        Actions actions = new Actions(driver);
+        actions.MoveToElement(driver.FindElement(By.CssSelector("a.dropdown-toggle"))).Perform();
+        actions.MoveToElement(driver.FindElement(By.XPath("//ul[@class='dropdown-menu']//child::a[text()='About us']"))).Click().Perform();
+    DragAndDrop() Example:
+        Actions action = new Actions(driver);
+        action.MoveToElement(driver.FindElement(By.XPath("//a[text()='Axis Restricted']"))).Click().Perform();
+        action.DragAndDrop(driver.FindElement(By.Id("restrictedX")), driver.FindElement(By.Id("restrictedY"))).Perform();
+
+- Switching to Frames:
+    driver.SwitchTo().Frame("courses-iframe");
+    driver.FindElement(By.LinkText("All Access Plan")).Click();
+
+- JavaScriptExecutor Example:
+    IWebElement frameScroll = driver.FindElement(By.Id("courses-iframe"));
+    IJavaScriptExecutor javaScriptExecutor = (IJavaScriptExecutor)driver;
+    javaScriptExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", frameScroll);
+
+- Switch to Child Window and back to parent window
+    String parentWindowName = driver.WindowHandles[0];
+    String childWindowName = driver.WindowHandles[1];
+    //switching to the child window
+    driver.SwitchTo().Window(childWindowName);
+    //Switching to the parent window
+    driver.SwitchTo().Window(parentWindowName);
+-
+-
+-
+-
+-

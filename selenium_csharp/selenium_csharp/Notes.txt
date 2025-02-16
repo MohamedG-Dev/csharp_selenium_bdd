@@ -1,7 +1,34 @@
 ﻿URLS can be used as part of practice:
 1. https://rahulshettyacademy.com/loginpagePractise/
+2. https://rahulshettyacademy.com/AutomationPractice/
 
+- obj folder holds the compiled files
+- bin folder holds the executable file. All executable file will be '.dll' extension
+
+- Nuget is a package manager similar to maven repository
 
 Program files to be followed as part of learning:
 These below tests are as part of NUnit project.
-1. SeleniumFirst.cs
+1. SeleniumFirst.cs - This file contains WebDriver initialization,
+	launching Chrome browser,maximizing the browser window, launching url,
+	get title and url of the page, closing the browser using close and quit.
+2. Locators.cs - This file contains major topics as:
+	- finding elements using id,name,classname,xpath and cssSelector.
+	- using SendKeys methods to enter the values. Click() metod to click on an element.
+	- fetching the text of an element, finding en elment using 'LinkText' and fetching the href value
+		by using GetAttribute() method.
+	- Using Implicit and Explicit Waits
+3. FunctionalTest.cs - Refer this file for the following Topics:
+	- Dropdowns - method name: dropdownSelection()
+	- RadioButtons - method name: selectRadioButton()
+4. End2EndTest.cs - This file includes one complete sigin flow of the application
+5. SortWebTables.cs - This file includes how to sort the values and fetch and assert the values.
+6. AlertsActionsAutoSuggestive.cs  - This file contains following topics:
+	- handling alerts - method name: AlertExample()
+	- handling dynamic dropdowns - method name: HandlingDynamicDropDowns()
+	- usage of Actions class - method name: ActionsClassExamples(), DragAndDropActionsClassExample()
+7. IFramesExamples.cs - This file contains the examples for the switching to
+	Frame and clicking on an element inside frame, fetching the data, switching
+	back to the parent window adn fetching the data from parent. It also has 
+	the JavaScriptExecutor examples on scrolling into view.
+8. 

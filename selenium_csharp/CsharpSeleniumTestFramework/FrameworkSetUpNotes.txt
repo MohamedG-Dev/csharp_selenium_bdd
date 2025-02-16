@@ -1,0 +1,41 @@
+﻿- Right click on the "CsharpSeleniumTestFramework" project and click on
+ manage Nuget Packages and install the following packages:
+	- Selenium.WebDriver
+	- Selenium.Support
+	- DotNetSeleniumExtras.WaitHelpers
+	- WebDriverManager
+	- System.Configuration.Configura
+	- DotNetSeleniumExtras.PageObjects - (This is for Page factory configuration)
+	- DotNetSeleniumExtras.PageObjects.Core - (This is for Page factory configuration)
+	- ExtentReports
+- Create a folder called "utilites" and create a file inside utilities folder
+	as "BaseTest.cs" and add the content of [SetUp] and [TearDown]
+		Note: Refere BaseTest.cs file for the setting up of base class
+- Create a folder callsed "tests" to place all the test files.
+- Create a file called "App.config" -  inside this file provide the information
+	such as browsername, url
+
+- Add the below lines in the "EditProjectFile"
+	<Target Name="CopyCustomContent" AfterTargets="AfterBuild">
+		<Copy SourceFiles="App.config" DestinationFiles="$(OutDir)\testhost.dll.config"></Copy>
+	</Target>
+
+-to execute through command line, open the terminal and type "cd CsharpSeleniumTestFramework"
+or copy the project path and then open a power shell and then type the below command
+ - command to execute entire project suite - dotnet test CsharpSeleniumTestFramework.csproj
+ - command to execute specific tests such as "Regression" or "Smoke"
+	-  dotnet test CsharpSeleniumTestFramework.csproj --filter TestCategory=Regression
+	-  dotnet test CsharpSeleniumTestFramework.csproj --filter TestCategory=Smoke
+	- invoking a different browser from the command line: 
+		dotnet test CsharpSeleniumTestFramework.csproj --filter TestCategory=Regression -- 'TestRunParameters.Parameter(name="browserName",value="Edge")'
+
+
+--Jenkins Settings:
+	1. Select new Item - Enter name as ""Selenium_CSharp_Framework"
+	2. Advanced -> Custom Workspace -> Enter the project location.
+		e.g: D:\Learning\csharp\workspace\csharp_selenium_bdd\selenium_csharp\CsharpSeleniumTestFramework
+	3. Select Build Steps -> enter the command:
+		dotnet test CsharpSeleniumTestFramework.csproj --filter TestCategory=Regression -- TestRunParameters.Parameter(name=\"browserName\",value=\"Edge\")
+	4. For parameterization: 
+		Select -> This project is parameterized -> Add Parameter -> Choice Parameter
+		-> enter values as name as "browserName" and values as - Chrome,Edge,Firefox

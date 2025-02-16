@@ -106,3 +106,4 @@ D:\Learning\csharp\workspace\csharp_selenium_bdd\selenium_csharp\selenium_csharp
 D:\Learning\csharp\workspace\csharp_selenium_bdd\selenium_csharp\selenium_csharp\bin\Debug\net8.0\AngleSharp.dll
 D:\Learning\csharp\workspace\csharp_selenium_bdd\selenium_csharp\selenium_csharp\bin\Debug\net8.0\ICSharpCode.SharpZipLib.dll
 D:\Learning\csharp\workspace\csharp_selenium_bdd\selenium_csharp\selenium_csharp\bin\Debug\net8.0\WebDriverManager.dll
+D:\Learning\csharp\workspace\csharp_selenium_bdd\selenium_csharp\selenium_csharp\bin\Debug\net8.0\SeleniumExtras.WaitHelpers.dll
